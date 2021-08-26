@@ -2,6 +2,7 @@ import React from 'react'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import { Link } from "react-router-dom";
 // import Cadastro from './Cadastro/index'
 // import Lista from './Lista'
 
@@ -14,8 +15,12 @@ const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link to="/Cadastro">Cadastro</Nav.Link>
-          <Nav.Link>Lista</Nav.Link>
+          <Link to="/Cadastro">
+          <Nav>Cadastro</Nav>
+          </Link>
+          <Link to="/Lista"> 
+            <Nav> Lista </Nav>
+          </Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

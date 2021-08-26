@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 import Table from 'react-bootstrap/Table'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import Nav from '../Header/Nav'
 
 export default class Lista extends Component {
   render() {
     return (
+      <>
+      <Nav/>
       <Container>
         <Table striped bordered hover>
           <thead>
@@ -39,6 +42,7 @@ export default class Lista extends Component {
           </tbody>
         </Table>
       </Container>
+      </>
     )
   }
 }

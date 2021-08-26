@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Container, Form, Col, Button } from 'react-bootstrap'
+import Nav from '../Header/Nav'
 
 export default class Cadastro extends Component {
   render() {
     return (
+      <>
+      <Nav/>
       <Container style={{ marginTop: '100px' }}>
         <h1>Cadastro de Herói</h1>
         <Form style={{ margin: '50px' }}>
@@ -26,6 +29,7 @@ export default class Cadastro extends Component {
           <Button style={{ margin: '30px', float: 'right' }}>Cadastrar</Button>
         </Form>
       </Container>
+      </>
     )
   }
 }
