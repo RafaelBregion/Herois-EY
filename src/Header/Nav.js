@@ -1,12 +1,15 @@
 import React from 'react'
 
+import './Nav.css'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import { Link } from "react-router-dom";
-// import Cadastro from './Cadastro/index'
-// import Lista from './Lista'
+import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = (handleLoginClick) => {
+  const handleClick = () => {
+    handleLoginClick()
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand>
@@ -16,15 +19,19 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Link to="/Cadastro">
-          <Nav>Cadastro</Nav>
+            <Nav>Cadastro</Nav>
           </Link>
-          <Link to="/Lista"> 
+          <Link to="/Lista">
             <Nav> Lista </Nav>
           </Link>
+          <div>
+            <button onClick={handleClick} className="logicon">
+              Sign In
+            </button>
+          </div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
   )
 }
-
 export default Header

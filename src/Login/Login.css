@@ -1,0 +1,10 @@
+.show {
+  display: block;
+  transition: 500ms;
+  opacity: 1;
+}
+
+.show.active {
+  transform: translateY(100px) scale(0) rotate(180deg);
+  opacity: 0;
+}
