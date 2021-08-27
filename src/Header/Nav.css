@@ -1,3 +1,4 @@
 .button:last-child {
   background: blue;
+  justify-content: space-between;
 }

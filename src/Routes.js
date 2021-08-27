@@ -5,6 +5,7 @@ import Cadastro from './Cadastro'
 import Lista from './Lista'
 
 const Routes = () => {
+  
   return (
     <BrowserRouter>
       <Switch>
