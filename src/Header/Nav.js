@@ -1,15 +1,10 @@
 import React from 'react'
 
-import './Nav.css'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { Link } from 'react-router-dom'
 
-const Header = (handleLoginClick) => {
-  const handleClick = () => {
-    handleLoginClick()
-  }
-
+const Header = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand>
@@ -24,11 +19,6 @@ const Header = (handleLoginClick) => {
           <Link to="/Lista">
             <Nav> Lista </Nav>
           </Link>
-          <div>
-            <button onClick={handleClick} className="logicon">
-              Sign In
-            </button>
-          </div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
