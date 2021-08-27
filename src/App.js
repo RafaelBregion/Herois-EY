@@ -11,10 +11,6 @@ import Profile from './Login/Profile'
 const App = () => {
   return (
     <>
-      <div class="alert alert-danger" role="alert">
-        Você precisa estar logado para ter acesso as informações privilegiadas.
-      </div>
-
       <LoginButton />
       <LogoutButton />
       <Profile />
