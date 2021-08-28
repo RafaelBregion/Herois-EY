@@ -10,7 +10,7 @@ const LoginButton = () => {
   return (
     !isAuthenticated && (
       <div>
-        <div class="alert alert-danger" role="alert">
+        <div className="alert alert-danger" role="alert">
           Você precisa estar logado para ter acesso as informações
           privilegiadas.
         </div>

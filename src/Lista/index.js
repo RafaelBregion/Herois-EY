@@ -1,41 +1,32 @@
-import React, { Component, useEffect, useState} from "react";
+import React, { Component, useEffect, useState, useCallback} from "react";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Nav from "../Header/Nav";
-import Hero from "../Hero";
+import axios from "axios";
 
-const Lista = props => {
-  const [heroes, setHeroes] = useState([]);
 
-  async function fetchHeroesHandler() {
-    const response = await fetch("https://herodin.herokuapp.com/api/heroes");
-    const data = await response.json();
+class Lista extends Component {
+  constructor(props){
+    super(props)
 
-    const loadedHeroes = [];
-
-    for (const key in data) {
-      loadedHeroes.push({
-        id: key,
-        name: data[key].name,
-        power: data[key].power,
-        universe: data[key].universe,
-        date: data[key].registrationDate,
-      });
+    this.state = {
+      heroes: []
     }
-
-    /*const transformedHeroes = data.results.map(heroData =>{
-      return{
-        id: heroData.id,
-        name: heroData.name,       
-        universe: heroData.universe
-      }
-    })*/
-    setHeroes(loadedHeroes);
   }
-  
+   componentDidMount(){
+     axios.get('https://herodin.herokuapp.com/api/heroes')
+     .then(response =>{
+      this.setState({
+        heroes: response.data 
+      })
+      console.log(response.data)
+     })
+   }
+  render(){
+    const{heroes} = this.state
   return (
-    <>
+    <>  
       <Nav />
       <Container>
         <Table striped bordered hover>
@@ -48,19 +39,18 @@ const Lista = props => {
               <th>Action</th>
             </tr>
           </thead>
-          {/* props.heroes.map((hero) => (
-            <Hero
-              key={hero.id}
-              id={hero.id}
-              name={hero.name}
-              power={hero.power}
-              universe={hero.universe}
-            />
-          )) */}
+          {heroes.map((hero) => (
+            <tbody>
+              <td>{hero.id}</td>
+              <td>{hero.name}</td>
+              <td>{hero.power}</td>
+              <td>{hero.universe}</td>
+            </tbody>
+          )) }
         </Table>
       </Container>
     </>
   );
-};
+}};
 
 export default Lista;
