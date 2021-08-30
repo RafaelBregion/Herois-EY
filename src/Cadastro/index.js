@@ -11,7 +11,7 @@ class Cadastro extends Component {
     super(props)
     this.state = {
       userId: '',
-      power: '',
+      powers: '',
       universe: '',
     }
   }
@@ -29,11 +29,11 @@ class Cadastro extends Component {
       .then((response) => {
         console.log(response.data)
       })
-    this.setState({ name: '', power: '', universe: '' })
+    this.setState({ name: '', powers: '', universe: '' })
   }
 
   render() {
-    const { name, power, universe } = this.state
+    const { name, powers, universe } = this.state
     return (
       <>
         <Nav />
@@ -56,8 +56,8 @@ class Cadastro extends Component {
                 <label>Superpoder</label>
                 <Form.Control
                   type="text"
-                  name="power"
-                  value={power}
+                  name="powers"
+                  value={powers}
                   onChange={this.handleChange}
                   placeholder="Superpoder"
                 />

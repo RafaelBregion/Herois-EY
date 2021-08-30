@@ -14,7 +14,7 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Link to="/">
-            <Button>Cadastro </Button>
+            <Button style={{ margin: '15px'}}>Cadastro </Button>
           </Link>
           </Nav>
           <Nav className="mr-auto">
@@ -24,7 +24,7 @@ const Header = () => {
         </Nav>
         <Nav className="mr-auto">
           <Link to="/Update">
-            <Button style={{ margin: '15px'}}> Atuazlizar </Button>
+            <Button style={{ margin: '15px'}}> Atualizar </Button>
           </Link>
         </Nav>
       </Navbar.Collapse>

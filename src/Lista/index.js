@@ -1,58 +1,65 @@
-import React, { Component, useEffect, useState, useCallback} from "react";
+import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Nav from "../Header/Nav";
 import axios from "axios";
 
-
 class Lista extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-      heroes: []
-    }
+      heroes: [],
+      userId: "",
+    };
   }
-   componentDidMount(){
-     axios.get('https://herodin.herokuapp.com/api/heroes')
-     .then(response =>{
+  componentDidMount() {
+    axios.get("https://herodin.herokuapp.com/api/heroes").then((response) => {
       this.setState({
-        heroes: response.data 
-      })
-      console.log(response.data)
+        heroes: response.data,
+      });
+    });
+  }
+handleDelete = (id)=>{
+ 
+    axios.delete(`https://herodin.herokuapp.com/api/heroes/delete/${id}`, this.state)
+    .then(() =>{
      })
-   }
-  render(){
-    const{heroes} = this.state
-  return (
-    <>  
-      <Nav />
-      <Container>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Heroi</th>
-              <th>Super-Poder</th>
-              <th>Universo</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          {heroes.map((hero) => (
-            <tbody>
-              <td>{hero.id}</td>
-              <td>{hero.name}</td>
-              <td>{hero.power}</td>
-              <td>{hero.universe}</td>
-              <Button>Update</Button>
-              <Button>Delete</Button>
-            </tbody>
-          )) }
-        </Table>
-      </Container>
-    </>
-  );
-}};
+  
+}
+  render() {
+    const { heroes } = this.state;
+    return (
+      <>
+        <Nav />
+        <Container>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Heroi</th>
+                <th>Super-Poder</th>
+                <th>Universo</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            {heroes.map((hero) => (
+              <tbody key={hero.id}>
+                <td>{hero.id}</td>
+                <td>{hero.name}</td>
+                <td>{hero.powers}</td>
+                <td>{hero.universe}</td>
+                <Button onClick={this.handleDelete.bind(this.heroes, hero.id)}>Delete</Button>
+  
+              </tbody>
+            ))}
+            {console.log(heroes)}
+          </Table>
+        </Container>
+      </>
+    );
+  }
+}
 
 export default Lista;

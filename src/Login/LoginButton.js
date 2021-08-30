@@ -1,7 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Cadastro from "../Cadastro";
 import { Button } from "react-bootstrap";
 
 const LoginButton = () => {

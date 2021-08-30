@@ -13,7 +13,6 @@ const Routes = () => {
       <Route path="/Lista" component={Lista}></Route>
       <Route path="/" exact component={Cadastro}></Route>
       <Route path="/Update" component={Update}></Route>
-
       </Switch>
     </BrowserRouter>
   )
