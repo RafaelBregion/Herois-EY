@@ -27,6 +27,7 @@ class Cadastro extends Component {
      .then(response =>{
       console.log(response.data)
      })
+     this.setState({name:'', power:'', universe:''})
   }
 
   render() {

@@ -22,6 +22,11 @@ const Header = () => {
             <Button style={{ margin: '15px'}}> Lista </Button>
           </Link>
         </Nav>
+        <Nav className="mr-auto">
+          <Link to="/Update">
+            <Button style={{ margin: '15px'}}> Atuazlizar </Button>
+          </Link>
+        </Nav>
       </Navbar.Collapse>
     </Navbar>
   )

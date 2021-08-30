@@ -45,6 +45,8 @@ class Lista extends Component {
               <td>{hero.name}</td>
               <td>{hero.power}</td>
               <td>{hero.universe}</td>
+              <Button>Update</Button>
+              <Button onClick={}>Delete</Button>
             </tbody>
           )) }
         </Table>
