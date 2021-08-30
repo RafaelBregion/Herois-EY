@@ -1,4 +1,3 @@
-.button:last-child {
-  background: blue;
-  justify-content: space-between;
+.Navbar {
+  padding: 0 !important;
 }

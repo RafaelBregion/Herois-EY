@@ -11,7 +11,7 @@ class Cadastro extends Component {
     super(props)
     this.state = {
       userId: '',
-      powers: '',
+      powerString: '',
       universe: '',
     }
   }
@@ -29,20 +29,23 @@ class Cadastro extends Component {
       .then((response) => {
         console.log(response.data)
       })
-    this.setState({ name: '', powers: '', universe: '' })
+    this.setState({ name: '', powerString: '', universe: '' })
   }
 
   render() {
-    const { name, powers, universe } = this.state
+    const { name, powerString, universe } = this.state
     return (
       <>
         <Nav />
         <Container>
           <h2>Cadastro</h2>
+          <br></br>
           <Form onSubmit={this.handleSubmit}>
             <Form.Row>
               <Col>
-                <label>Nome</label>
+                <th>
+                  <label>Nome</label>
+                </th>
                 <Form.Control
                   type="text"
                   name="name"
@@ -53,34 +56,71 @@ class Cadastro extends Component {
               </Col>
               <br></br>
               <Col>
-                <label>Superpoder</label>
+                <th>
+                  <label>Superpoder</label>
+                </th>
                 <Form.Control
                   type="text"
-                  name="powers"
-                  value={powers}
+                  name="powerString"
+                  value={powerString}
                   onChange={this.handleChange}
                   placeholder="Superpoder"
                 />
               </Col>
               <br></br>
               <Col>
-                <label>Universo</label>
+                <th>
+                  <label>Universo</label>
+                </th>
+                <Form>
+                  {['radio'].map((type) => (
+                    <div key={`inline-${type}`} className="mb-3">
+                      <Form.Check
+                        inline
+                        label="EY Comics"
+                        name="universe"
+                        type={type}
+                        id={`inline-${type}-1`}
+                        value={'EY Comics'}
+                        onChange={this.handleChange}
+                      />
+                      <Form.Check
+                        inline
+                        label="Trainee Comics"
+                        name="universe"
+                        type={type}
+                        id={`inline-${type}-2`}
+                        value={'Trainee Comics'}
+                        onChange={this.handleChange}
+                      />
+
+                      <Form.Check
+                        inline
+                        label="Outros"
+                        name="universe"
+                        type={type}
+                        id={`inline-${type}-3`}
+                        value={'Outros'}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  ))}
+                </Form>
+                {/* <label>Caso marque a opção "Outro", escreva qual:</label>
                 <Form.Control
                   type="text"
                   name="universe"
                   value={universe}
                   onChange={this.handleChange}
                   placeholder="Universo"
-                />
+                /> */}
               </Col>
             </Form.Row>
             <Button className="Cad" type="submit">
               Cadastrar
             </Button>
             <Link to="/Lista">
-              {/* <Button className="mt-auto p-2 bd-highlight">
-                Mostrar Herois
-              </Button> */}
+              {/* <Button className="ShowHer">Mostrar Heróis</Button> */}
             </Link>
           </Form>
         </Container>

@@ -1,32 +1,30 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import { Link } from 'react-router-dom'
+
+import { Navbar, Nav } from 'react-bootstrap'
+import { Link, NavLink } from 'react-router-dom'
+import LogoutButton from '../Login/LogoutButton'
 
 const Header = () => {
   return (
-    <Navbar bg="yellow" expand="lg">
+    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Navbar.Brand>
         <h4> Cadastro de Heróis</h4>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="me-auto">
           <Link to="/">
-            <Button style={{ margin: '15px'}}>Cadastro </Button>
+            <Nav.Link href="/">Cadastro</Nav.Link>
           </Link>
-          </Nav>
-          <Nav className="mr-auto">
+
           <Link to="/Lista">
-            <Button style={{ margin: '15px'}}> Lista </Button>
+            <Nav.Link href="/Lista">Lista</Nav.Link>
           </Link>
-        </Nav>
-        <Nav className="mr-auto">
           <Link to="/Update">
-            <Button style={{ margin: '15px'}}> Atualizar </Button>
+            <Nav.Link href="/Update">Atualizar</Nav.Link>
           </Link>
         </Nav>
+        <LogoutButton />
       </Navbar.Collapse>
     </Navbar>
   )
