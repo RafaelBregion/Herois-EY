@@ -1,0 +1,19 @@
+* {
+  font-family: 'Fira Code';
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #17a2b8;
+  border-radius: 50px;
+  border: 3px solid #f8f9fa;
+}

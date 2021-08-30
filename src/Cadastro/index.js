@@ -11,6 +11,7 @@ class Cadastro extends Component {
     super(props)
     this.state = {
       userId: '',
+      powers: [],
       powerString: '',
       universe: '',
     }
@@ -23,17 +24,19 @@ class Cadastro extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    const body = this.state;
+    body.powers.push(body.powerString)
     axios
       .post('https://herodin.herokuapp.com/api/heroes/create', this.state)
       .then((response) => {
         console.log(response.data)
       })
-    this.setState({ name: '', powerString: '', universe: '' })
+    this.setState({ name: '', powers: [], universe: '' })
   }
 
   render() {
-    const { name, powerString, universe } = this.state
+    const { name, powerString,powers, universe } = this.state
     return (
       <>
         <Nav />
