@@ -1,0 +1,18 @@
+label {
+  margin-bottom: 0.5rem;
+}
+
+.container {
+  margin-top: 50px !important;
+}
+
+.Cad {
+  margin: 40px;
+  position: absolute;
+  right: 100px;
+}
+
+/* .ShowHer {
+  margin: 20px;
+  float: 'left';
+} */

@@ -1,43 +1,45 @@
-import React, { Component, useCallback, useEffect, useState } from "react";
-import { Container, Form, Col, Button } from "react-bootstrap";
-import Nav from "../Header/Nav";
-import { Link } from "react-router-dom";
-import { render } from "@testing-library/react";
+import React, { Component } from 'react'
+import { Container, Form, Col, Button } from 'react-bootstrap'
+import Nav from '../Header/Nav'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+
+import './index.css'
 
 class Cadastro extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      userId: "",
-      power: "",
-      universe: "",
-    };
+      userId: '',
+      power: '',
+      universe: '',
+    }
   }
 
-  handleChange = (e) =>{
+  handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
   }
 
-  handleSubmit = (e) =>{
-    e.preventDefault();
-    axios.post('https://herodin.herokuapp.com/api/heroes/create', this.state)
-     .then(response =>{
-      console.log(response.data)
-     })
-     this.setState({name:'', power:'', universe:''})
+  handleSubmit = (e) => {
+    e.preventDefault()
+    axios
+      .post('https://herodin.herokuapp.com/api/heroes/create', this.state)
+      .then((response) => {
+        console.log(response.data)
+      })
+    this.setState({ name: '', power: '', universe: '' })
   }
 
   render() {
-    const { name, power, universe } = this.state;
+    const { name, power, universe } = this.state
     return (
       <>
         <Nav />
-        <Container style={{ marginTop: "100px" }}>
-          <h1>Cadastro de Herói</h1>
-          <Form style={{ margin: "50px" }} onSubmit={this.handleSubmit}>
+        <Container>
+          <h2>Cadastro</h2>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Row>
               <Col>
                 <label>Nome</label>
@@ -72,20 +74,19 @@ class Cadastro extends Component {
                 />
               </Col>
             </Form.Row>
-            <Button type='submit'style={{ margin: "30px", float: "right" }}>
+            <Button className="Cad" type="submit">
               Cadastrar
             </Button>
             <Link to="/Lista">
-              <Button style={{ margin: "30px", float: "left" }}>
+              {/* <Button className="mt-auto p-2 bd-highlight">
                 Mostrar Herois
-              </Button>
+              </Button> */}
             </Link>
           </Form>
         </Container>
       </>
-    );
+    )
   }
-} 
+}
 
 export default Cadastro
-
